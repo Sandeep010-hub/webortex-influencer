@@ -6,7 +6,6 @@ import ProblemStatement from '@/components/ProblemStatement';
 import SolutionOverview from '@/components/SolutionOverview';
 import ServicePackages from '@/components/ServicePackages';
 import ROICalculator from '@/components/ROICalculator';
-import ClientTestimonials from '@/components/ClientTestimonials';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import ProcessTimeline from '@/components/ProcessTimeline';
 import Guarantees from '@/components/Guarantees';
@@ -28,7 +27,6 @@ const Index = () => {
         <ServicePackages />
       </div>
       <ROICalculator />
-      <ClientTestimonials />
       <WhyChooseUs />
       <div id="process">
         <ProcessTimeline />

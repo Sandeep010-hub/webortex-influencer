@@ -1,9 +1,11 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const ServicePackages = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   const packages = [
     {
@@ -82,19 +84,23 @@ const ServicePackages = () => {
     }
   ];
 
+  const handlePackageSelect = () => {
+    navigate('/contact');
+  };
+
   return (
-    <section className="py-20 px-4 relative">
+    <section className="py-12 md:py-20 px-4 relative">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] bg-clip-text text-transparent">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] bg-clip-text text-transparent">
             Choose Your Growth Plan
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Tailored packages designed to match your influence level and business goals.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           {packages.map((pkg, index) => (
             <div
               key={index}
@@ -102,55 +108,55 @@ const ServicePackages = () => {
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              {/* Badge */}
               {pkg.badge && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                  <span className="bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  <span className="bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] text-white px-3 md:px-4 py-1 md:py-2 rounded-full text-xs md:text-sm font-semibold">
                     {pkg.badge}
                   </span>
                 </div>
               )}
 
-              {/* Glow Effect */}
               <div className={`absolute inset-0 bg-gradient-to-br ${pkg.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-all duration-500`}></div>
 
-              {/* Card */}
-              <div className={`relative bg-black/60 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 h-full transition-all duration-300 hover:border-opacity-50 ${
-                hoveredCard === index ? 'transform scale-105 border-white/30' : ''
+              <div className={`relative bg-black/80 backdrop-blur-sm border-2 border-gray-800 rounded-2xl p-6 md:p-8 h-full transition-all duration-300 hover:border-[#00d4ff]/50 ${
+                hoveredCard === index ? 'transform scale-105 border-[#00d4ff]/50' : ''
               }`}>
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
-                  <span className="text-sm font-medium text-gray-400 bg-gray-800 px-3 py-1 rounded-full">
+                <div className="text-center mb-4 md:mb-6">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{pkg.name}</h3>
+                  <span className="text-xs md:text-sm font-medium text-gray-400 bg-gray-800 px-2 md:px-3 py-1 rounded-full">
                     {pkg.type}
                   </span>
                 </div>
 
-                <div className="text-center mb-6">
-                  <div className={`text-3xl font-bold bg-gradient-to-r ${pkg.color} bg-clip-text text-transparent mb-2`}>
+                <div className="text-center mb-4 md:mb-6">
+                  <div className={`text-2xl md:text-3xl font-bold bg-gradient-to-r ${pkg.color} bg-clip-text text-transparent mb-2`}>
                     {pkg.price}
                   </div>
-                  <p className="text-gray-400">{pkg.pages}</p>
+                  <p className="text-sm md:text-base text-gray-400">{pkg.pages}</p>
                 </div>
 
-                <div className="mb-8">
-                  <h4 className="text-lg font-semibold text-white mb-4">Features:</h4>
-                  <ul className="space-y-2">
+                <div className="mb-6 md:mb-8">
+                  <h4 className="text-base md:text-lg font-semibold text-white mb-3 md:mb-4">Features:</h4>
+                  <ul className="space-y-1 md:space-y-2 max-h-64 overflow-y-auto">
                     {pkg.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start text-gray-300">
-                        <span className="text-green-400 mr-2 mt-1">✓</span>
-                        <span className="text-sm">{feature}</span>
+                        <span className="text-green-400 mr-2 mt-1 text-xs md:text-sm">✓</span>
+                        <span className="text-xs md:text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mb-6">
-                  <p className="text-sm text-gray-400 text-center">
+                <div className="mb-4 md:mb-6">
+                  <p className="text-xs md:text-sm text-gray-400 text-center">
                     <span className="font-semibold">Best For:</span> {pkg.bestFor}
                   </p>
                 </div>
 
-                <Button className={`w-full bg-gradient-to-r ${pkg.color} hover:opacity-90 text-white font-semibold py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl`}>
+                <Button 
+                  onClick={handlePackageSelect}
+                  className={`w-full bg-gradient-to-r ${pkg.color} hover:opacity-90 text-white font-semibold py-2 md:py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-transparent hover:border-white/20`}
+                >
                   {pkg.cta}
                 </Button>
               </div>
@@ -158,14 +164,13 @@ const ServicePackages = () => {
           ))}
         </div>
 
-        {/* Additional Info */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-[#00d4ff]/10 to-[#9d4edd]/10 backdrop-blur-sm border border-[#00d4ff]/30 rounded-2xl p-6 max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold mb-3 text-[#00d4ff]">💰 30-Day Money-Back Guarantee</h3>
-            <p className="text-gray-300 mb-4">
+        <div className="text-center mt-12 md:mt-16">
+          <div className="bg-gradient-to-r from-[#00d4ff]/10 to-[#9d4edd]/10 backdrop-blur-sm border-2 border-[#00d4ff]/30 rounded-2xl p-6 md:p-8 max-w-2xl mx-auto">
+            <h3 className="text-lg md:text-xl font-bold mb-3 text-[#00d4ff]">30-Day Money-Back Guarantee</h3>
+            <p className="text-sm md:text-base text-gray-300 mb-4">
               Not satisfied with your website? Get a full refund within 30 days, no questions asked.
             </p>
-            <p className="text-sm text-gray-400">
+            <p className="text-xs md:text-sm text-gray-400">
               All packages include free consultation, design mockups, and post-launch support.
             </p>
           </div>

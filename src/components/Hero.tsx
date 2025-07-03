@@ -18,7 +18,6 @@ const Hero = () => {
     'Build Your Digital Empire'
   ];
 
-  // Fixed typewriter effect without cursor
   useEffect(() => {
     const typeInterval = setInterval(() => {
       const currentFullText = texts[currentIndex];
@@ -42,7 +41,6 @@ const Hero = () => {
     return () => clearInterval(typeInterval);
   }, [currentText, currentIndex, isDeleting]);
 
-  // Counter animation
   useEffect(() => {
     const animateCounters = () => {
       const targets = { websites: 500, revenue: 2, clients: 1200 };
@@ -80,14 +78,11 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Subtle background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#0d0d15] to-[#0a0a0a]">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#0d0d15] to-[#0a0a0a] opacity-90">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMGQ0ZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-10"></div>
       </div>
 
-      {/* Content */}
       <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
-        {/* Main Headline with Typewriter Effect */}
         <div className="h-24 mb-6 flex items-center justify-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#00d4ff] via-[#9d4edd] to-[#ffd700] bg-clip-text text-transparent">
             {currentText}
@@ -98,7 +93,6 @@ const Hero = () => {
           Professional Portfolio Websites That Convert Followers Into Revenue
         </p>
 
-        {/* Statistics Counter */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 animate-fade-in delay-700">
           <div className="glass rounded-2xl p-6 card-hover">
             <div className="text-3xl font-bold text-[#00d4ff] mb-2">
@@ -122,11 +116,10 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in delay-1000">
           <Button 
             onClick={() => scrollToSection('#contact')}
-            className="bg-[#00d4ff] hover:bg-[#0099cc] text-white font-semibold px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
+            className="bg-gradient-to-r from-[#00d4ff] to-[#0099cc] hover:from-[#00a8d4] hover:to-[#007aa3] text-white font-semibold px-8 py-4 text-lg rounded-lg transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-[#00d4ff]/30"
           >
             Get Your Free Demo
           </Button>
@@ -134,7 +127,7 @@ const Hero = () => {
           <Button 
             variant="outline" 
             onClick={() => scrollToSection('#process')}
-            className="border-2 border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
+            className="border-2 border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white hover:border-gray-500 font-semibold px-8 py-4 text-lg rounded-lg transition-all duration-300 hover:scale-105"
           >
             View Our Process
           </Button>

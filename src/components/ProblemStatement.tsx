@@ -1,90 +1,105 @@
 
 import React from 'react';
+import { Button } from '@/components/ui/button';
+import { TrendingDown, Users, Clock, AlertTriangle } from 'lucide-react';
 
 const ProblemStatement = () => {
   const problems = [
-    { title: 'Lost Opportunities in DMs', description: 'Missing potential collaborations and revenue streams' },
-    { title: 'Unprofessional Image', description: 'Scattered online presence hurts credibility' },
-    { title: 'No Direct Payment System', description: 'Complicated payment processes lose customers' },
-    { title: 'Scattered Online Presence', description: 'Followers can\'t find all your content easily' }
+    {
+      icon: TrendingDown,
+      title: 'Lost Revenue',
+      description: 'Missing out on monetization opportunities every day'
+    },
+    {
+      icon: Users,
+      title: 'Scattered Presence',
+      description: 'Your audience is spread across multiple platforms'
+    },
+    {
+      icon: Clock,
+      title: 'Time Wasted',
+      description: 'Hours spent managing different social media accounts'
+    },
+    {
+      icon: AlertTriangle,
+      title: 'No Central Hub',
+      description: 'Lack of professional website to showcase your work'
+    }
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const solutions = [
+    {
+      title: 'Centralized Revenue Hub',
+      description: 'All your income streams in one professional platform'
+    },
+    {
+      title: 'Professional Portfolio',
+      description: 'Showcase your work and attract premium clients'
+    },
+    {
+      title: 'Automated Systems',
+      description: 'Streamlined processes that work 24/7 for you'
+    },
+    {
+      title: 'Brand Authority',
+      description: 'Establish credibility and command higher rates'
     }
-  };
+  ];
 
   return (
     <section className="py-20 px-4 relative">
       <div className="max-w-7xl mx-auto">
-        {/* Background Glow - Changed to orange/amber */}
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-900/20 to-amber-900/20 blur-3xl opacity-30"></div>
-        
-        <div className="relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 text-orange-400">
-              Are You Losing Money Every Day?
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Every day without a professional website costs you potential revenue, collaborations, and growth opportunities.
-            </p>
-          </div>
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-[#ff8c00] to-[#ffd700] bg-clip-text text-transparent">
+            Are You Losing Money Every Day?
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Most influencers leave significant revenue on the table due to these common challenges.
+          </p>
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {problems.map((problem, index) => (
-              <div
-                key={index}
-                className="relative group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                <div className="relative glass border border-orange-500/30 rounded-2xl p-6 hover:border-orange-400/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg mb-4 flex items-center justify-center">
-                    <span className="text-2xl">⚠️</span>
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          {/* Problems */}
+          <div>
+            <h3 className="text-3xl font-bold text-[#ff8c00] mb-8 text-center">The Problems You Face</h3>
+            <div className="space-y-6">
+              {problems.map((problem, index) => {
+                const IconComponent = problem.icon;
+                return (
+                  <div key={index} className="glass rounded-xl p-6 card-hover">
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-gradient-to-r from-[#ff8c00] to-[#ffd700] p-3 rounded-lg">
+                        <IconComponent className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-white mb-2">{problem.title}</h4>
+                        <p className="text-gray-400">{problem.description}</p>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-orange-300">{problem.title}</h3>
-                  <p className="text-gray-400">{problem.description}</p>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Solutions */}
+          <div>
+            <h3 className="text-3xl font-bold text-[#00d4ff] mb-8 text-center">Our Solutions</h3>
+            <div className="space-y-6">
+              {solutions.map((solution, index) => (
+                <div key={index} className="glass rounded-xl p-6 card-hover">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] p-3 rounded-lg">
+                      <span className="text-white font-bold">✓</span>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-white mb-2">{solution.title}</h4>
+                      <p className="text-gray-400">{solution.description}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Before/After Visual */}
-          <div className="mt-20 grid md:grid-cols-2 gap-12 items-center">
-            <div className="text-center">
-              <div className="glass bg-orange-900/20 border border-orange-500/30 rounded-2xl p-8 mb-4">
-                <h3 className="text-2xl font-bold text-orange-400 mb-4">Without Webortex</h3>
-                <ul className="space-y-2 text-gray-400">
-                  <li>❌ Missed collaborations</li>
-                  <li>❌ Unprofessional appearance</li>
-                  <li>❌ Lost revenue opportunities</li>
-                  <li>❌ Scattered online presence</li>
-                </ul>
-              </div>
+              ))}
             </div>
-            
-            <div className="text-center">
-              <div className="glass bg-gradient-to-br from-[#00d4ff]/20 to-[#9d4edd]/20 border border-[#00d4ff]/30 rounded-2xl p-8 mb-4">
-                <h3 className="text-2xl font-bold text-[#00d4ff] mb-4">With Webortex</h3>
-                <ul className="space-y-2 text-gray-300">
-                  <li>✅ Professional portfolio</li>
-                  <li>✅ Direct payment integration</li>
-                  <li>✅ Increased revenue streams</li>
-                  <li>✅ Unified brand presence</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="text-center mt-12">
-            <button
-              onClick={() => scrollToSection('#solutions')}
-              className="bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] hover:from-[#0099cc] hover:to-[#7c3aed] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-            >
-              See How We Solve This
-            </button>
           </div>
         </div>
       </div>

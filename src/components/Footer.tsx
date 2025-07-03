@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -29,10 +30,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'Instagram', icon: '📱', href: 'https://instagram.com' },
-    { name: 'LinkedIn', icon: '💼', href: 'https://linkedin.com' },
-    { name: 'Twitter', icon: '🐦', href: 'https://twitter.com' },
-    { name: 'YouTube', icon: '📺', href: 'https://youtube.com' }
+    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
+    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com' },
+    { name: 'YouTube', icon: Youtube, href: 'https://youtube.com' }
   ];
 
   const legalLinks = [
@@ -59,18 +60,21 @@ const Footer = () => {
               Your success is our mission.
             </p>
             <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 glass rounded-full flex items-center justify-center hover:border-[#00d4ff]/50 transition-all duration-300 hover:scale-110"
-                  title={social.name}
-                >
-                  <span className="text-lg">{social.icon}</span>
-                </a>
-              ))}
+              {socialLinks.map((social) => {
+                const IconComponent = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 glass rounded-full flex items-center justify-center card-hover"
+                    title={social.name}
+                  >
+                    <IconComponent className="w-5 h-5 text-gray-400" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -109,9 +113,9 @@ const Footer = () => {
             <div className="mt-6">
               <h4 className="text-sm font-semibold text-white mb-2">Contact Info</h4>
               <p className="text-gray-400 text-sm">
-                📞 +91 98765 43210<br />
-                📧 hello@webortex.com<br />
-                📍 Mumbai, India
+                Phone: +91 98765 43210<br />
+                Email: hello@webortex.com<br />
+                Location: Mumbai, India
               </p>
             </div>
           </div>
@@ -120,12 +124,12 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2024 Webortex. All rights reserved. Made with ❤️ for influencers.
+            © 2024 Webortex. All rights reserved.
           </p>
           <div className="flex items-center space-x-4 text-sm text-gray-400">
-            <span>🔒 Secure</span>
-            <span>⚡ Fast</span>
-            <span>📱 Responsive</span>
+            <span>Secure</span>
+            <span>Fast</span>
+            <span>Responsive</span>
           </div>
         </div>
       </div>

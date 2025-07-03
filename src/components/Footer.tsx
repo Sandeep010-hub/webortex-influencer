@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
+import { Instagram, Linkedin, Facebook } from 'lucide-react';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -29,10 +28,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com' },
-    { name: 'YouTube', icon: Youtube, href: 'https://youtube.com' }
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/webortex/?igsh=bDN2d3hucmxuMjd5#' },
+    { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/share/181A4ZPQmc/' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/webortex-a08a93359/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' }
   ];
 
   const legalLinks = [
@@ -43,21 +41,68 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-black/95 backdrop-blur-sm border-t-2 border-gray-800 py-12 md:py-16 px-4">
+    <footer className="bg-black/95 backdrop-blur-sm border-t-2 border-gray-800 py-3 md:py-4 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div className="md:col-span-2">
-            <button
-              onClick={() => handleNavigation('/')}
-              className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] bg-clip-text text-transparent mb-4 block"
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-8 w-full">
+          {/* Brand & Description */}
+          <div className="flex flex-col min-w-[200px]">
+            <a
+              href="/"
+              className="mb-2 block text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+              aria-label="Go to homepage"
             >
-              Webortex
-            </button>
-            <p className="text-gray-400 mb-6 max-w-md text-sm md:text-base">
-              Transforming influencer presence into profitable businesses through professional portfolio websites. 
-              Your success is our mission.
+              <img src="/logo.png" alt="Webortex logo" className="h-10 w-auto" />
+            </a>
+            <p className="text-gray-400 mb-2 max-w-xs text-sm md:text-base">
+              Transforming influencer presence into profitable businesses through professional portfolio websites. Your success is our mission.
             </p>
-            <div className="flex space-x-4">
+          </div>
+
+          {/* Navigation */}
+          <div className="flex flex-col min-w-[120px]">
+            <h3 className="text-lg font-semibold text-white mb-2">Navigation</h3>
+            <ul className="space-y-1">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <button
+                    onClick={() => handleNavigation(link.href, link.section)}
+                    className="text-gray-400 hover:text-[#00d4ff] transition-colors duration-200 text-sm md:text-base text-left"
+                  >
+                    {link.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div className="flex flex-col min-w-[140px]">
+            <h3 className="text-lg font-semibold text-white mb-2">Legal</h3>
+            <ul className="space-y-1">
+              {legalLinks.map((link) => (
+                <li key={link.name}>
+                  <button
+                    onClick={() => handleNavigation(link.href)}
+                    className="text-gray-400 hover:text-[#00d4ff] transition-colors duration-200 text-sm md:text-base text-left"
+                  >
+                    {link.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info + Socials (stacked vertically) */}
+          <div className="flex flex-col min-w-[220px] gap-4">
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-2">Contact Info</h4>
+              <p className="text-gray-400 text-sm">
+                Phone: +91 8688221981 / 9502414128<br />
+                Email: webortex@gmail.com<br />
+                Location: AP, India
+              </p>
+            </div>
+            <div className="flex flex-row items-center gap-3">
               {socialLinks.map((social) => {
                 const IconComponent = social.icon;
                 return (
@@ -75,66 +120,12 @@ const Footer = () => {
               })}
             </div>
           </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Navigation</h3>
-            <ul className="space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <button
-                    onClick={() => handleNavigation(link.href, link.section)}
-                    className="text-gray-400 hover:text-[#00d4ff] transition-colors duration-200 text-sm md:text-base"
-                  >
-                    {link.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Legal</h3>
-            <ul className="space-y-2 mb-6">
-              {legalLinks.map((link) => (
-                <li key={link.name}>
-                  <button
-                    onClick={() => handleNavigation(link.href)}
-                    className="text-gray-400 hover:text-[#00d4ff] transition-colors duration-200 text-sm md:text-base"
-                  >
-                    {link.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-            <div>
-              <h4 className="text-sm font-semibold text-white mb-2">Contact Info</h4>
-              <p className="text-gray-400 text-sm">
-                Phone: +91 8688221981 / 9502414128<br />
-                Email: webortex@gmail.com<br />
-                Location: AP, India
-              </p>
-            </div>
-          </div>
         </div>
 
-        <div className="pt-6 md:pt-8 border-t-2 border-gray-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
+        <div className="pt-6 md:pt-8 flex justify-center items-center">
+          <p className="text-gray-400 text-sm">
             © 2024 Webortex. All rights reserved.
           </p>
-          <div className="flex items-center space-x-6 text-sm text-gray-400">
-            <span className="flex items-center">
-              <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-              Secure
-            </span>
-            <span className="flex items-center">
-              <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
-              Fast
-            </span>
-            <span className="flex items-center">
-              <span className="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
-              Responsive
-            </span>
-          </div>
         </div>
       </div>
     </footer>

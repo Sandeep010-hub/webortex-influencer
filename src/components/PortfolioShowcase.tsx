@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const PortfolioShowcase = () => {
@@ -118,60 +117,36 @@ const PortfolioShowcase = () => {
               onMouseEnter={() => setHoveredItem(index)}
               onMouseLeave={() => setHoveredItem(null)}
             >
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/20 to-[#9d4edd]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-              
-              {/* Card */}
-              <div className="relative bg-black/40 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden hover:border-[#00d4ff]/50 transition-all duration-300 hover:transform hover:scale-105">
+              {/* Removed Glow Effect */}
+              <div className="relative bg-black/40 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden group-hover:border-[#00d4ff] group-hover:shadow-lg transition-all duration-300">
                 {/* Image */}
-                <div className="relative overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  
-                  {/* Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 ${
-                    hoveredItem === index ? 'opacity-100' : 'opacity-0'
-                  }`}>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="flex space-x-2 mb-3">
-                        {item.features.map((feature, idx) => (
-                          <span key={idx} className="text-xs bg-[#00d4ff] text-white px-2 py-1 rounded-full">
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                      <button className="w-full bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] text-white py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">
-                        View Live Site
-                      </button>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                {/* Overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 ${
+                  hoveredItem === index ? 'opacity-100' : 'opacity-0'
+                }`}>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex space-x-2 mb-3">
+                      {item.features.map((feature, idx) => (
+                        <span key={idx} className="text-xs bg-[#00d4ff] text-white px-2 py-1 rounded-full">
+                          {feature}
+                        </span>
+                      ))}
                     </div>
-                  </div>
-
-                  {/* Category Badge */}
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      {item.category}
-                    </span>
+                    <button className="w-full bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] text-white py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                      View Live Site
+                    </button>
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#00d4ff] transition-colors">
-                    {item.title}
-                  </h3>
-                  
-                  <div className="flex items-center text-sm text-gray-400 mb-3">
-                    <span>{item.influencer}</span>
-                    <span className="mx-2">•</span>
-                    <span>{item.followers} followers</span>
-                  </div>
-                  
-                  <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">
-                    {item.description}
-                  </p>
+                {/* Category Badge */}
+                <div className="absolute top-4 right-4">
+                  <span className="bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    {item.category}
+                  </span>
                 </div>
               </div>
             </div>

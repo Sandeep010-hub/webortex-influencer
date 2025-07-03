@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Guarantees = () => {
@@ -50,8 +49,7 @@ const Guarantees = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {guarantees.map((guarantee, index) => (
             <div key={index} className="group relative">
-              <div className={`absolute inset-0 bg-gradient-to-br ${guarantee.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-all duration-500`}></div>
-              <div className="relative glass rounded-2xl p-8 hover:border-white/20 transition-all duration-300 h-full">
+              <div className="relative glass rounded-2xl p-8 border border-gray-800 group-hover:border-[#00d4ff] group-hover:shadow-lg transition-all duration-300 h-full">
                 <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                   {guarantee.icon}
                 </div>

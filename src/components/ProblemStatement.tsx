@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { TrendingDown, Users, Clock, AlertTriangle } from 'lucide-react';
@@ -68,7 +67,7 @@ const ProblemStatement = () => {
                 return (
                   <div key={index} className="glass rounded-xl p-6 card-hover">
                     <div className="flex items-start space-x-4">
-                      <div className="bg-gradient-to-r from-[#ff8c00] to-[#ffd700] p-3 rounded-lg">
+                      <div className="bg-gradient-to-r from-[#ffb347] to-[#ffe082] p-3 rounded-lg">
                         <IconComponent className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
@@ -89,7 +88,7 @@ const ProblemStatement = () => {
               {solutions.map((solution, index) => (
                 <div key={index} className="glass rounded-xl p-6 card-hover">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] p-3 rounded-lg">
+                    <div className="bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] p-3 w-12 h-12 flex items-center justify-center rounded-lg">
                       <span className="text-white font-bold">✓</span>
                     </div>
                     <div className="flex-1">

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Target, DollarSign, Rocket, MapPin, CheckCircle, XCircle } from 'lucide-react';
 
@@ -58,8 +57,7 @@ const WhyChooseUs = () => {
             const IconComponent = item.icon;
             return (
               <div key={index} className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/20 to-[#9d4edd]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                <div className="relative bg-black/60 backdrop-blur-sm border-2 border-gray-800 rounded-2xl p-4 md:p-6 hover:border-[#00d4ff]/50 transition-all duration-300 h-full">
+                <div className="relative bg-black/60 backdrop-blur-sm border-2 border-gray-800 rounded-2xl p-4 md:p-6 group-hover:border-[#00d4ff] group-hover:shadow-lg transition-all duration-300 h-full">
                   <div className="mb-4">
                     <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-[#00d4ff]" />
                   </div>

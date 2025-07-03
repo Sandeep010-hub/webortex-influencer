@@ -60,12 +60,15 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <button
-              onClick={() => navigate('/')}
-              className="text-2xl font-bold bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] bg-clip-text text-transparent"
+            <a
+              href="/"
+              className="focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff] flex items-center gap-2"
+              aria-label="Go to homepage"
             >
-              Webortex
-            </button>
+              <img src="/logo.png" alt="Webortex logo" className="h-9 w-auto" />
+              {/* Optionally, keep the text for accessibility or branding */}
+              {/* <span className="sr-only">Webortex</span> */}
+            </a>
           </div>
 
           <nav className="hidden md:flex space-x-8">
@@ -83,7 +86,7 @@ const Header = () => {
           <div className="hidden md:block">
             <Button 
               onClick={scrollToContact}
-              className="bg-gradient-to-r from-[#00d4ff] to-[#0099cc] hover:from-[#00a8d4] hover:to-[#007aa3] text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-[#00d4ff]/30"
+              className="bg-gradient-to-r from-[#00d4ff] to-[#0099cc] hover:from-[#00a8d4] hover:to-[#007aa3] text-white font-bold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105 border border-[#00d4ff]/40 shadow-lg drop-shadow-lg"
             >
               Get Free Demo
             </Button>
@@ -116,7 +119,7 @@ const Header = () => {
               <div className="pt-4">
                 <Button 
                   onClick={scrollToContact}
-                  className="w-full bg-gradient-to-r from-[#00d4ff] to-[#0099cc] hover:from-[#00a8d4] hover:to-[#007aa3] text-white font-semibold py-2 rounded-lg"
+                  className="w-full bg-gradient-to-r from-[#00d4ff] to-[#0099cc] hover:from-[#00a8d4] hover:to-[#007aa3] text-white font-bold py-3 rounded-xl border border-[#00d4ff]/40 shadow-lg drop-shadow-lg"
                 >
                   Get Free Demo
                 </Button>

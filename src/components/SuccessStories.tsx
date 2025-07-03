@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 const SuccessStories = () => {
@@ -180,8 +179,7 @@ const SuccessStories = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {caseStudies.map((study, index) => (
               <div key={index} className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/20 to-[#9d4edd]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                <div className="relative bg-black/40 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden hover:border-[#00d4ff]/50 transition-all duration-300">
+                <div className="relative bg-black/40 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden group-hover:border-[#00d4ff] group-hover:shadow-lg transition-all duration-300">
                   <img
                     src={study.image}
                     alt={study.title}

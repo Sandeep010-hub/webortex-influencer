@@ -1,73 +1,61 @@
-# Welcome to your Lovable project
+# Webortex Influencer
 
-## Project info
+A professional influencer portfolio website built with React, Vite, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/d6013038-5817-49af-8238-676873678d56
+## Features
+- Modern, responsive design
+- Animated hero section with Lottie and Framer Motion
+- Accessible navigation and forms
+- Services, Pricing, Process, and Contact sections
+- Dedicated pages for each major section
+- Social media and contact integration
+- Google Maps embed for location
+- Fully customizable and ready for deployment
 
-## How can I edit this code?
+## Getting Started
 
-There are several ways of editing your application.
+### Prerequisites
+- Node.js (v16+ recommended)
+- npm or yarn
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/d6013038-5817-49af-8238-676873678d56) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Installation
+```bash
+npm install
+# or
+yarn install
 ```
 
-**Edit a file directly in GitHub**
+### Development
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build for Production
+```bash
+npm run build
+# or
+yarn build
+```
 
-**Use GitHub Codespaces**
+### Preview Production Build
+```bash
+npm run preview
+# or
+yarn preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Deployment
+- Deploy easily to [Vercel](https://vercel.com/) or [Netlify](https://netlify.com/).
+- No environment variables required by default.
+- All static assets (logo, favicon, etc.) are in the `public` directory.
 
-## What technologies are used for this project?
+## Contact
+- Email: webortex@gmail.com
+- WhatsApp: +91 76720 24001
+- Location: AP, India
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/d6013038-5817-49af-8238-676873678d56) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+© 2024 Webortex. All rights reserved.

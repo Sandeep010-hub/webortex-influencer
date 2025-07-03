@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const SolutionOverview = () => {
@@ -35,11 +34,8 @@ const SolutionOverview = () => {
                 key={index}
                 className="group relative"
               >
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/20 to-[#9d4edd]/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                
-                {/* Card */}
-                <div className="relative bg-black/40 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 hover:border-[#00d4ff]/50 transition-all duration-300 hover:transform hover:scale-105 h-full">
+                {/* Removed background/gradient/blur hover effect */}
+                <div className="relative bg-black/40 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 group-hover:border-[#00d4ff] group-hover:shadow-lg transition-all duration-300 h-full">
                   <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                     {feature.icon}
                   </div>
@@ -59,7 +55,13 @@ const SolutionOverview = () => {
             <div className="bg-gradient-to-r from-[#00d4ff]/10 to-[#9d4edd]/10 backdrop-blur-sm border border-[#00d4ff]/30 rounded-2xl p-8 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold mb-4 text-[#00d4ff]">Ready to Get Started?</h3>
               <p className="text-gray-300 mb-6">Join thousands of influencers who've transformed their online presence with Webortex.</p>
-              <button className="bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] hover:from-[#0099cc] hover:to-[#7c3aed] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#00d4ff]/50">
+              <button
+                onClick={() => {
+                  const el = document.querySelector('#process');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] hover:from-[#0099cc] hover:to-[#7c3aed] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#00d4ff]/50"
+              >
                 Start Your Transformation
               </button>
             </div>

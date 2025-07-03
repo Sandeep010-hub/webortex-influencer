@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -30,28 +29,27 @@ const ContactSection = () => {
       description: 'Get instant responses to your queries',
       icon: '💬',
       action: 'Chat Now',
-      color: 'from-green-500 to-green-600'
+      color: 'from-green-500 to-green-600',
+      href: 'https://wa.me/917672024001',
+      target: '_blank'
     },
     {
       title: 'Email Support',
       description: 'Detailed inquiries and project discussions',
       icon: '📧',
       action: 'Send Email',
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-blue-500 to-blue-600',
+      href: 'mailto:webortex@gmail.com',
+      target: '_self'
     },
     {
       title: 'Phone Consultation',
       description: 'Direct conversation with our experts',
       icon: '📞',
       action: 'Call Now',
-      color: 'from-purple-500 to-purple-600'
-    },
-    {
-      title: 'Video Call',
-      description: 'Face-to-face project planning session',
-      icon: '🎥',
-      action: 'Schedule Call',
-      color: 'from-[#00d4ff] to-[#0099cc]'
+      color: 'from-purple-500 to-purple-600',
+      href: 'tel:+917672024001',
+      target: '_self'
     }
   ];
 
@@ -69,10 +67,10 @@ const ContactSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Form */}
-          <div className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-white mb-6">Request Your Free Demo</h3>
+          <div className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 h-full flex flex-col">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">Request Your Free Demo</h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col justify-between">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-white font-medium mb-2">Full Name *</label>
@@ -81,7 +79,7 @@ const ContactSection = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-colors"
+                    className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:bg-black/60"
                     placeholder="Your full name"
                     required
                   />
@@ -93,7 +91,7 @@ const ContactSection = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-colors"
+                    className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:bg-black/60"
                     placeholder="your@email.com"
                     required
                   />
@@ -108,7 +106,7 @@ const ContactSection = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-colors"
+                    className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:bg-black/60"
                     placeholder="+91 XXXXX XXXXX"
                   />
                 </div>
@@ -118,7 +116,7 @@ const ContactSection = () => {
                     name="followers"
                     value={formData.followers}
                     onChange={handleInputChange}
-                    className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-colors"
+                    className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:bg-black/60"
                   >
                     <option value="">Select range</option>
                     <option value="10k-50k">10K - 50K</option>
@@ -137,7 +135,7 @@ const ContactSection = () => {
                     name="niche"
                     value={formData.niche}
                     onChange={handleInputChange}
-                    className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-colors"
+                    className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:bg-black/60"
                   >
                     <option value="">Select niche</option>
                     <option value="fashion">Fashion & Beauty</option>
@@ -155,7 +153,7 @@ const ContactSection = () => {
                     name="package"
                     value={formData.package}
                     onChange={handleInputChange}
-                    className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-colors"
+                    className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:bg-black/60"
                   >
                     <option value="">Select package</option>
                     <option value="foundation">Foundation Package</option>
@@ -173,17 +171,19 @@ const ContactSection = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-colors"
+                  className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:bg-black/60"
                   placeholder="Tell us about your project goals, timeline, and any specific requirements..."
                 ></textarea>
               </div>
 
               <Button 
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] hover:from-[#0099cc] hover:to-[#7c3aed] text-white font-semibold py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#00d4ff]/50"
+                className="w-full bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] hover:from-[#0099cc] hover:to-[#7c3aed] text-white font-semibold py-2 text-base rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#00d4ff]/30"
               >
                 Get My Free Demo 🚀
               </Button>
+              {/* Dummy div for height balancing on desktop */}
+              <div className="hidden lg:block" style={{ height: '120px' }} aria-hidden="true"></div>
             </form>
           </div>
 
@@ -194,17 +194,21 @@ const ContactSection = () => {
               <div className="grid gap-4">
                 {contactOptions.map((option, index) => (
                   <div key={index} className="group relative">
-                    <div className={`absolute inset-0 bg-gradient-to-r ${option.color} rounded-xl blur-xl opacity-0 group-hover:opacity-30 transition-all duration-300`}></div>
-                    <div className="relative bg-black/40 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition-all duration-300">
+                    <div className="relative bg-black/40 backdrop-blur-sm border border-gray-700 rounded-xl p-6 transition-all duration-300 hover:border-[#00d4ff] hover:shadow-[0_0_12px_#00d4ff55]">
                       <div className="flex items-center space-x-4">
                         <div className="text-3xl">{option.icon}</div>
                         <div className="flex-1">
                           <h4 className="text-lg font-semibold text-white mb-1">{option.title}</h4>
                           <p className="text-gray-400 text-sm">{option.description}</p>
                         </div>
-                        <button className={`bg-gradient-to-r ${option.color} text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity`}>
+                        <a
+                          href={option.href}
+                          target={option.target}
+                          rel={option.target === '_blank' ? 'noopener noreferrer' : undefined}
+                          className={`bg-gradient-to-r ${option.color} text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity`}
+                        >
                           {option.action}
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -212,33 +216,25 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Guarantee */}
-            <div className="bg-gradient-to-r from-[#ffd700]/20 to-[#ff8c00]/20 border border-[#ffd700]/30 rounded-xl p-6">
-              <div className="text-center">
-                <div className="text-4xl mb-3">🛡️</div>
-                <h4 className="text-xl font-bold text-[#ffd700] mb-2">30-Day Money-Back Guarantee</h4>
-                <p className="text-gray-300 text-sm">
-                  We're so confident in our work that we offer a full refund if you're not completely satisfied within 30 days.
-                </p>
+            {/* Location & Contact Info Card */}
+            <div className="bg-black/40 backdrop-blur-sm border border-gray-700 rounded-xl p-6 flex flex-col gap-2">
+              <h4 className="text-lg font-bold text-white mb-2">Our Location & Contact</h4>
+              <div className="w-full h-48 rounded-lg overflow-hidden mb-3">
+                <iframe
+                  src="https://www.google.com/maps?q=Andhra+Pradesh,+India&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Webortex Location"
+                ></iframe>
               </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="text-center">
-              <h4 className="text-lg font-semibold text-white mb-4">Follow Us</h4>
-              <div className="flex justify-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold hover:scale-110 transition-transform cursor-pointer">
-                  IG
-                </div>
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold hover:scale-110 transition-transform cursor-pointer">
-                  LI
-                </div>
-                <div className="w-12 h-12 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center text-white font-bold hover:scale-110 transition-transform cursor-pointer">
-                  X
-                </div>
-                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold hover:scale-110 transition-transform cursor-pointer">
-                  YT
-                </div>
+              <div className="text-gray-300 text-base">
+                <div><span className="font-semibold">Location:</span> AP, India</div>
+                <div><span className="font-semibold">Phone:</span> +91 8688221981 / 9502414128</div>
+                <div><span className="font-semibold">Email:</span> webortex@gmail.com</div>
               </div>
             </div>
           </div>

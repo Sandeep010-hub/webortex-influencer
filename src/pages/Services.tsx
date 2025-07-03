@@ -1,7 +1,7 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { Check } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -49,7 +49,7 @@ const Services = () => {
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center text-gray-400">
-                      <span className="text-[#00d4ff] mr-2">✓</span>
+                      <span className="text-[#00d4ff] mr-2"><Check size={20} /></span>
                       {feature}
                     </li>
                   ))}

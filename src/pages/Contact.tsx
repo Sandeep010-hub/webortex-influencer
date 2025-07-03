@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -55,7 +54,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg text-white focus:border-[#00d4ff] focus:outline-none"
+                    className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:border-2 hover:bg-black/60 hover:shadow-lg hover:scale-105"
                   />
                 </div>
                 
@@ -68,7 +67,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg text-white focus:border-[#00d4ff] focus:outline-none"
+                    className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:border-2 hover:bg-black/60 hover:shadow-lg hover:scale-105"
                   />
                 </div>
                 
@@ -80,7 +79,7 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg text-white focus:border-[#00d4ff] focus:outline-none"
+                    className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:border-2 hover:bg-black/60 hover:shadow-lg hover:scale-105"
                   />
                 </div>
                 
@@ -91,7 +90,7 @@ const Contact = () => {
                     name="followers"
                     value={formData.followers}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg text-white focus:border-[#00d4ff] focus:outline-none"
+                    className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:border-2 hover:bg-black/60 hover:shadow-lg hover:scale-105"
                   >
                     <option value="">Select Range</option>
                     <option value="1k-10k">1K - 10K</option>
@@ -112,7 +111,7 @@ const Contact = () => {
                     value={formData.niche}
                     onChange={handleChange}
                     placeholder="e.g., Fashion, Tech, Lifestyle, Food..."
-                    className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg text-white focus:border-[#00d4ff] focus:outline-none"
+                    className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:border-2 hover:bg-black/60 hover:shadow-lg hover:scale-105"
                   />
                 </div>
                 
@@ -124,7 +123,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg text-white focus:border-[#00d4ff] focus:outline-none"
+                    className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg text-white focus:border-[#00d4ff] focus:outline-none transition-all duration-200 hover:border-[#00d4ff] hover:border-2 hover:bg-black/60 hover:shadow-lg hover:scale-105"
                   />
                 </div>
                 

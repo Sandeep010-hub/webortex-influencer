@@ -9,6 +9,13 @@ const ProblemStatement = () => {
     { title: 'Scattered Online Presence', description: 'Followers can\'t find all your content easily' }
   ];
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="py-20 px-4 relative">
       <div className="max-w-7xl mx-auto">
@@ -32,7 +39,7 @@ const ProblemStatement = () => {
                 className="relative group"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                <div className="relative bg-black/40 backdrop-blur-sm border border-red-500/30 rounded-2xl p-6 hover:border-red-400/50 transition-all duration-300 hover:transform hover:scale-105">
+                <div className="relative glass border border-red-500/30 rounded-2xl p-6 hover:border-red-400/50 transition-all duration-300 hover:transform hover:scale-105">
                   <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg mb-4 flex items-center justify-center">
                     <span className="text-2xl">⚠️</span>
                   </div>
@@ -46,7 +53,7 @@ const ProblemStatement = () => {
           {/* Before/After Visual */}
           <div className="mt-20 grid md:grid-cols-2 gap-12 items-center">
             <div className="text-center">
-              <div className="bg-red-900/20 border border-red-500/30 rounded-2xl p-8 mb-4">
+              <div className="glass bg-red-900/20 border border-red-500/30 rounded-2xl p-8 mb-4">
                 <h3 className="text-2xl font-bold text-red-400 mb-4">Without Webortex</h3>
                 <ul className="space-y-2 text-gray-400">
                   <li>❌ Missed collaborations</li>
@@ -58,7 +65,7 @@ const ProblemStatement = () => {
             </div>
             
             <div className="text-center">
-              <div className="bg-gradient-to-br from-[#00d4ff]/20 to-[#9d4edd]/20 border border-[#00d4ff]/30 rounded-2xl p-8 mb-4">
+              <div className="glass bg-gradient-to-br from-[#00d4ff]/20 to-[#9d4edd]/20 border border-[#00d4ff]/30 rounded-2xl p-8 mb-4">
                 <h3 className="text-2xl font-bold text-[#00d4ff] mb-4">With Webortex</h3>
                 <ul className="space-y-2 text-gray-300">
                   <li>✅ Professional portfolio</li>
@@ -68,6 +75,16 @@ const ProblemStatement = () => {
                 </ul>
               </div>
             </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <button
+              onClick={() => scrollToSection('#solutions')}
+              className="bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] hover:from-[#0099cc] hover:to-[#7c3aed] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            >
+              See How We Solve This
+            </button>
           </div>
         </div>
       </div>

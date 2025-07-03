@@ -1,11 +1,78 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 
 const Hero = () => {
+  const [currentText, setCurrentText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [counters, setCounters] = useState({
+    websites: 0,
+    revenue: 0,
+    clients: 0
+  });
+
+  const texts = [
+    'Transform Your Influence Into Income',
+    'Convert Followers Into Revenue',
+    'Build Your Digital Empire'
+  ];
+
+  // Typewriter effect
+  useEffect(() => {
+    const typeInterval = setInterval(() => {
+      const currentFullText = texts[currentIndex];
+      if (currentText.length < currentFullText.length) {
+        setCurrentText(currentFullText.slice(0, currentText.length + 1));
+      } else {
+        setTimeout(() => {
+          setCurrentText('');
+          setCurrentIndex((prev) => (prev + 1) % texts.length);
+        }, 2000);
+      }
+    }, 100);
+
+    return () => clearInterval(typeInterval);
+  }, [currentText, currentIndex]);
+
+  // Counter animation
+  useEffect(() => {
+    const animateCounters = () => {
+      const targets = { websites: 500, revenue: 2, clients: 1200 };
+      const duration = 3000;
+      const steps = 60;
+      const stepDuration = duration / steps;
+
+      let currentStep = 0;
+      const interval = setInterval(() => {
+        currentStep++;
+        const progress = currentStep / steps;
+        
+        setCounters({
+          websites: Math.floor(targets.websites * progress),
+          revenue: Math.floor(targets.revenue * progress * 100) / 100,
+          clients: Math.floor(targets.clients * progress)
+        });
+
+        if (currentStep >= steps) {
+          clearInterval(interval);
+        }
+      }, stepDuration);
+    };
+
+    const timer = setTimeout(animateCounters, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#141428] to-[#0a0a0a]">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMGQ0ZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-40"></div>
@@ -20,27 +87,65 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-[#00d4ff] via-[#9d4edd] to-[#ffd700] bg-clip-text text-transparent animate-fade-in">
-          Transform Your Influence Into Income
-        </h1>
+        {/* Main Headline with Typewriter Effect */}
+        <div className="h-24 mb-6 flex items-center justify-center">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#00d4ff] via-[#9d4edd] to-[#ffd700] bg-clip-text text-transparent">
+            {currentText}
+            <span className="animate-pulse">|</span>
+          </h1>
+        </div>
         
-        <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto animate-fade-in delay-300">
+        <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto animate-fade-in delay-500">
           Professional Portfolio Websites That Convert Followers Into Revenue
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in delay-500">
-          <Button className="bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] hover:from-[#0099cc] hover:to-[#7c3aed] text-white font-semibold px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#00d4ff]/50">
+        {/* Statistics Counter */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 animate-fade-in delay-700">
+          <div className="glass rounded-2xl p-6">
+            <div className="text-3xl font-bold text-[#00d4ff] mb-2">
+              {counters.websites}+
+            </div>
+            <p className="text-gray-300">Websites Built</p>
+          </div>
+          
+          <div className="glass rounded-2xl p-6">
+            <div className="text-3xl font-bold text-[#ffd700] mb-2">
+              ₹{counters.revenue}Cr+
+            </div>
+            <p className="text-gray-300">Revenue Generated</p>
+          </div>
+          
+          <div className="glass rounded-2xl p-6">
+            <div className="text-3xl font-bold text-[#9d4edd] mb-2">
+              {counters.clients}+
+            </div>
+            <p className="text-gray-300">Happy Clients</p>
+          </div>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in delay-1000">
+          <Button 
+            onClick={() => scrollToSection('#contact')}
+            className="bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] hover:from-[#0099cc] hover:to-[#7c3aed] text-white font-semibold px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#00d4ff]/50"
+          >
             Get Your Free Demo
           </Button>
           
-          <Button variant="outline" className="border-[#00d4ff] text-[#00d4ff] hover:bg-[#00d4ff] hover:text-black font-semibold px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105">
-            View Our Portfolio
+          <Button 
+            variant="outline" 
+            onClick={() => scrollToSection('#portfolio')}
+            className="border-[#00d4ff] text-[#00d4ff] hover:bg-[#00d4ff] hover:text-black font-semibold px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
+          >
+            See Our Work
           </Button>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowDown className="w-6 h-6 text-[#00d4ff]" />
+          <button onClick={() => scrollToSection('#problem')}>
+            <ArrowDown className="w-6 h-6 text-[#00d4ff]" />
+          </button>
         </div>
       </div>
 

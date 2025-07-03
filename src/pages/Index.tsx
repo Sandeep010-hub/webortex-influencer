@@ -6,10 +6,9 @@ import ProblemStatement from '@/components/ProblemStatement';
 import SolutionOverview from '@/components/SolutionOverview';
 import ServicePackages from '@/components/ServicePackages';
 import ROICalculator from '@/components/ROICalculator';
-import SuccessStories from '@/components/SuccessStories';
+import ClientTestimonials from '@/components/ClientTestimonials';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import ProcessTimeline from '@/components/ProcessTimeline';
-import PortfolioShowcase from '@/components/PortfolioShowcase';
 import Guarantees from '@/components/Guarantees';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -29,13 +28,10 @@ const Index = () => {
         <ServicePackages />
       </div>
       <ROICalculator />
-      <SuccessStories />
+      <ClientTestimonials />
       <WhyChooseUs />
       <div id="process">
         <ProcessTimeline />
-      </div>
-      <div id="portfolio">
-        <PortfolioShowcase />
       </div>
       <Guarantees />
       <div id="contact">

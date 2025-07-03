@@ -1,28 +1,38 @@
 
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigation = (href: string, section?: string) => {
+    if (location.pathname === '/' && section) {
+      // If on home page, scroll to section
+      const element = document.querySelector(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
     }
+    
+    // Navigate to different page
+    navigate(href);
   };
 
   const navLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'Services', href: '#solutions' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Process', href: '#process' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '/', section: '#hero' },
+    { name: 'Services', href: '/services', section: '#solutions' },
+    { name: 'Pricing', href: '/pricing', section: '#pricing' },
+    { name: 'Process', href: '/process', section: '#process' },
+    { name: 'Contact', href: '/contact', section: '#contact' }
   ];
 
   const socialLinks = [
-    { name: 'Instagram', icon: '📱', href: '#' },
-    { name: 'LinkedIn', icon: '💼', href: '#' },
-    { name: 'Twitter', icon: '🐦', href: '#' },
-    { name: 'YouTube', icon: '📺', href: '#' }
+    { name: 'Instagram', icon: '📱', href: 'https://instagram.com' },
+    { name: 'LinkedIn', icon: '💼', href: 'https://linkedin.com' },
+    { name: 'Twitter', icon: '🐦', href: 'https://twitter.com' },
+    { name: 'YouTube', icon: '📺', href: 'https://youtube.com' }
   ];
 
   const legalLinks = [
@@ -38,9 +48,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <div className="text-3xl font-bold bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] bg-clip-text text-transparent mb-4">
+            <button
+              onClick={() => navigate('/')}
+              className="text-3xl font-bold bg-gradient-to-r from-[#00d4ff] to-[#9d4edd] bg-clip-text text-transparent mb-4 block"
+            >
               Webortex
-            </div>
+            </button>
             <p className="text-gray-400 mb-6 max-w-md">
               Transforming influencer presence into profitable businesses through professional portfolio websites. 
               Your success is our mission.
@@ -50,6 +63,8 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 glass rounded-full flex items-center justify-center hover:border-[#00d4ff]/50 transition-all duration-300 hover:scale-110"
                   title={social.name}
                 >
@@ -66,7 +81,7 @@ const Footer = () => {
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <button
-                    onClick={() => scrollToSection(link.href)}
+                    onClick={() => handleNavigation(link.href, link.section)}
                     className="text-gray-400 hover:text-[#00d4ff] transition-colors duration-200"
                   >
                     {link.name}
@@ -82,12 +97,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {legalLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <button
+                    onClick={() => navigate(link.href)}
                     className="text-gray-400 hover:text-[#00d4ff] transition-colors duration-200"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>

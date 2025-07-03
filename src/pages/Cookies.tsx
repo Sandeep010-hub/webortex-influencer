@@ -56,10 +56,10 @@ const Cookies = () => {
                 cookies may impact your user experience and some functionality may not work as intended.
               </p>
               <ul className="list-disc list-inside text-gray-400 space-y-2">
-                <li>Chrome: Settings > Privacy and Security > Cookies</li>
-                <li>Firefox: Options > Privacy & Security > Cookies</li>
-                <li>Safari: Preferences > Privacy > Cookies</li>
-                <li>Edge: Settings > Privacy, Search, and Services > Cookies</li>
+                <li>Chrome: Settings {'->'} Privacy and Security {'->'} Cookies</li>
+                <li>Firefox: Options {'->'} Privacy & Security {'->'} Cookies</li>
+                <li>Safari: Preferences {'->'} Privacy {'->'} Cookies</li>
+                <li>Edge: Settings {'->'} Privacy, Search, and Services {'->'} Cookies</li>
               </ul>
             </section>
 
